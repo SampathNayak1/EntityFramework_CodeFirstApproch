@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EntityFramework_CodeFirstApproch.Models.Employee>
+
+@{
+    ViewBag.Title = "Read";
+}
+
+<h2>Read</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deptno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deptno)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id=item.Eno })  |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Eno } , new { onclick="return confirm('Are you sure want to delete?');"  })
+        </td>
+    </tr>
+}
+
+</table>
